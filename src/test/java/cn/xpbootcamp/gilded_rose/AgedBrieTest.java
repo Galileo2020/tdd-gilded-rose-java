@@ -25,4 +25,15 @@ class AgedBrieTest {
 
         Assertions.assertEquals(1, quality.intValue());
     }
+
+    @Test
+    void qualityShouldLessAndEqualThanFifty() {
+        LocalDate today = LocalDate.now();
+        AgedBrie agedBrie = new AgedBrie(0, 0, today);
+
+        LocalDate tomorrow = today.plusDays(100);
+        Integer quality = agedBrie.getQualityOfGivenDate(tomorrow);
+
+        Assertions.assertEquals(50, quality.intValue());
+    }
 }
