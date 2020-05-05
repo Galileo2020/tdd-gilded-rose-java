@@ -10,6 +10,6 @@ public class Sulfuras extends BaseCommodity {
 
     @Override
     public Integer getQualityOfGivenDate(LocalDate someday) {
-        return 0;
+        return getQuality();
     }
 }
