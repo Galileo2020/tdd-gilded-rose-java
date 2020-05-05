@@ -1,5 +1,7 @@
 package cn.xpbootcamp.gilded_rose;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 import java.time.LocalDate;
 
 public class AgedBrie extends BaseCommodity {
@@ -10,6 +12,9 @@ public class AgedBrie extends BaseCommodity {
 
     @Override
     public Integer getQualityOfGivenDate(LocalDate someday) {
-        return super.getQualityOfGivenDate(someday);
+        int result = getQuality();
+        int days = (int) DAYS.between(getRefreshDate(), someday);
+        result = result + days;
+        return result;
     }
 }
