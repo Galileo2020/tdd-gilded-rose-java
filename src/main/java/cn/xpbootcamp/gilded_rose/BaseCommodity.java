@@ -36,4 +36,8 @@ public class BaseCommodity {
     public void setRefreshDate(LocalDate refreshDate) {
         this.refreshDate = refreshDate;
     }
+
+    public Integer getQualityOfGivenDate(LocalDate someday) {
+        return 0;
+    }
 }
