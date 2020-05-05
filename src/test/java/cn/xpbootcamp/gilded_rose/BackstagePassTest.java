@@ -41,4 +41,16 @@ class BackstagePassTest {
 
         Assertions.assertEquals(0, backstagePass.getQualityOfGivenDate(OneDayLater).intValue());
     }
+
+    @Test
+    void qualityShouldIncreaseThreeWhenTheDueDateIsInFiveDays() {
+        LocalDate today = LocalDate.now();
+        BackstagePass backstagePass = new BackstagePass(5, 10, today);
+
+        LocalDate OneDayLater = today.plusDays(1);
+        LocalDate TwoDaysLater = today.plusDays(2);
+
+        Assertions.assertEquals(13, backstagePass.getQualityOfGivenDate(OneDayLater).intValue());
+        Assertions.assertEquals(16, backstagePass.getQualityOfGivenDate(TwoDaysLater).intValue());
+    }
 }
