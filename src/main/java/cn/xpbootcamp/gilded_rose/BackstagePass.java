@@ -1,5 +1,7 @@
 package cn.xpbootcamp.gilded_rose;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 import java.time.LocalDate;
 
 public class BackstagePass extends BaseCommodity {
@@ -10,6 +12,16 @@ public class BackstagePass extends BaseCommodity {
 
     @Override
     public Integer getQualityOfGivenDate(LocalDate someday) {
-        return 0;
+        int result = getQuality();
+        int days = (int) DAYS.between(getRefreshDate(), someday);
+
+        if (days > getSellIn()) {
+            result = 0;
+        } else {
+            result = result + days;
+            if (result > 50) result = 50;
+        }
+
+        return result;
     }
 }
