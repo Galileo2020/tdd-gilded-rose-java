@@ -22,3 +22,9 @@
 	- 在演出前10天，价值每天上升2点
 	- 演出前5天，价值每天上升3点
 	- 一旦过了演出日，价值就马上变成0
+
+Task:
+ 1. 构造基类，编写通用的价格计算方法；
+ 2. 构造AgedBrie类，从BaseCommodity继承，重载价格计算方法；
+ 3. 构造Sulfuras类，从BaseCommodity继承，重载价格计算方法；
+ 4. 构造BackstagePass类，从BaseCommodity继承，重载价格计算方法；
