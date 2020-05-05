@@ -1,5 +1,7 @@
 package cn.xpbootcamp.gilded_rose;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 import java.time.LocalDate;
 
 public class BaseCommodity {
@@ -38,6 +40,7 @@ public class BaseCommodity {
     }
 
     public Integer getQualityOfGivenDate(LocalDate someday) {
-        return 0;
+        int days = (int) DAYS.between(refreshDate, someday);
+        return quality - days;
     }
 }
