@@ -18,15 +18,24 @@ public class BackstagePass extends BaseCommodity {
         if (days > getSellIn()) {
             result = 0;
         } else {
-            if (days < 5) {
-                result = result + 3 * days;
-            } else {
-                result = result + days;
+            for (int i = 1; i <= days; i++) {
+                result = result + getRate(getSellIn() - i);
             }
 
             if (result > 50) result = 50;
         }
 
         return result;
+    }
+
+    private Integer getRate(Integer daysBeforeExpired) {
+        if (daysBeforeExpired >= 10) {
+            return 1;
+        } else if (daysBeforeExpired >= 5)
+            return 2;
+        else if (daysBeforeExpired >= 0)
+            return 3;
+        else
+            return 0;
     }
 }
