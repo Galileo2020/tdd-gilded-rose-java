@@ -14,7 +14,10 @@ public class AgedBrie extends BaseCommodity {
     public Integer getQualityOfGivenDate(LocalDate someday) {
         int result = getQuality();
         int days = (int) DAYS.between(getRefreshDate(), someday);
+
         result = result + days;
+        if (result > 50) result = 50;
+
         return result;
     }
 }
