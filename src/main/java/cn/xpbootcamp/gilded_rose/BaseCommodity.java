@@ -1,12 +1,16 @@
 package cn.xpbootcamp.gilded_rose;
 
+import java.time.LocalDate;
+
 public class BaseCommodity {
     private Integer sellIn;
     private Integer quality;
+    private LocalDate refreshDate;
 
-    public BaseCommodity(Integer sellIn, Integer quality) {
+    public BaseCommodity(Integer sellIn, Integer quality, LocalDate refreshDate) {
         this.sellIn = sellIn;
         this.quality = quality;
+        this.refreshDate = refreshDate;
     }
 
     public Integer getSellIn() {
@@ -23,5 +27,13 @@ public class BaseCommodity {
 
     public void setQuality(Integer quality) {
         this.quality = quality;
+    }
+
+    public LocalDate getRefreshDate() {
+        return refreshDate;
+    }
+
+    public void setRefreshDate(LocalDate refreshDate) {
+        this.refreshDate = refreshDate;
     }
 }
