@@ -40,7 +40,18 @@ public class BaseCommodity {
     }
 
     public Integer getQualityOfGivenDate(LocalDate someday) {
+        int quality = this.quality;
         int days = (int) DAYS.between(refreshDate, someday);
-        return quality - days;
+
+        if (days <= sellIn) {
+            quality = quality - days;
+        } else {
+            quality = quality - sellIn - 2 * (days - sellIn);
+        }
+
+        if (quality < 0) {
+            quality = 0;
+        }
+        return quality;
     }
 }
